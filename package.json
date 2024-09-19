@@ -28,10 +28,7 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ],
-    "rules": {
-      "react/no-redundant-should-component-update": "warn"
-    }
+    ]
   },
   "browserslist": {
     "production": [
