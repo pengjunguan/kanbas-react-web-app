@@ -9,7 +9,7 @@ export default function AssignmentEditor() {
         page should include the following: Your full name and section 
         Links to each of the lab assignments Link to the Kanbas application
         Links to all relevant source code repositories The Kanbas application 
-        should include a link to navigate back to the landing page.
+        should include a link to navigate back to the landing page.123
         </textarea><br /><br />
         
         <table>
@@ -117,7 +117,7 @@ export default function AssignmentEditor() {
         <tr>
             <td></td>
             <td>         
-              <input id="wd-due-date" type="date" defaultValue="2024-05-13" />
+              <input id="wd-due-date" type="date" value="2024-05-13" />
             </td>
           </tr>
           <br />
