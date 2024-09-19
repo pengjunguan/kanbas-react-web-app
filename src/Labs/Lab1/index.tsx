@@ -181,14 +181,14 @@ export default function Lab1() {
         <br />
         <img 
           id="wd-starship"
-          width="400px"
+          width={400}
           src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
-          alt="Starship gap image"
+          alt="SpaceX Starship prototype on launchpad"
         />
         <br />
         Loading a local image:
         <br />
-        <img id="wd-teslabot" src="images/teslabot.jpg" height="200px" />
+        <img id="wd-teslabot" src="images/teslabot.jpg" height={200} alt="TB"/>
       </div>
 
       <div id="wd-forms">
@@ -198,7 +198,7 @@ export default function Lab1() {
           <label htmlFor="wd-text-fields-username">Username:</label>
           <input id="wd-text-fields-username" placeholder="jdoe" /> <br />
           <label htmlFor="wd-text-fields-password">Password:</label>
-          <input type="password" id="wd-text-fields-password" value="123@#$asd" />
+          <input type="password" id="wd-text-fields-password" defaultValue="123@#$asd" />
           <br />
           <label htmlFor="wd-text-fields-first-name">First name:</label>
           <input type="text" id="wd-text-fields-first-name" title="John" /> <br />
