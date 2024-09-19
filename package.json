@@ -32,7 +32,7 @@
     "rules": {
       "react/no-redundant-should-component-update": "warn"
     },
-    "ignoreDuringBuilds": false
+    "treatWarningsAsErrors": false
   },
   "browserslist": {
     "production": [
