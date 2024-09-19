@@ -9,7 +9,7 @@ export default function AssignmentEditor() {
         page should include the following: Your full name and section 
         Links to each of the lab assignments Link to the Kanbas application
         Links to all relevant source code repositories The Kanbas application 
-        should include a link to navigate back to the landing page. 123
+        should include a link to navigate back to the landing page.
         </textarea><br /><br />
         
         <table>
