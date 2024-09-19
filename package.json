@@ -30,10 +30,9 @@
       "react-app/jest"
     ],
     "rules": {
-      "react/no-redundant-should-component-update": "warn",
-      "jsx-a11y/img-redundant-alt": "warn",
-      "jsx-a11y/alt-text": "warn"
-    }
+      "react/no-redundant-should-component-update": "warn"
+    },
+    "ignoreDuringBuilds": false
   },
   "browserslist": {
     "production": [
