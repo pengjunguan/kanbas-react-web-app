@@ -7,7 +7,7 @@ import { MdViewList } from "react-icons/md";
 import { TfiAnnouncement } from "react-icons/tfi";
 import { SiSimpleanalytics } from "react-icons/si";
 import { IoMdNotificationsOutline } from "react-icons/io";
-{/* Find more icons */}
+
 export default function CourseStatus() {
   return (
     <div id="wd-course-status" style={{ width: "300px" }}>

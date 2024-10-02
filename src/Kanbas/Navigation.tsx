@@ -13,7 +13,7 @@ export default function KanbasNavigation() {
 );} */
 import { AiOutlineDashboard } from "react-icons/ai";
 import { IoCalendarOutline } from "react-icons/io5";
-import { LiaBookSolid, LiaCogSolid } from "react-icons/lia";
+import { LiaBookSolid } from "react-icons/lia";
 import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -24,9 +24,9 @@ export default function KanbasNavigation() {
       <a id="wd-neu-link" target="_blank" 
         href="https://www.northeastern.edu/"
         className="list-group-item bg-black border-0 text-center">
-        <img src="/images/NEU.png" width="75px" /></a><br />
+        <img src="/images/NEU.png" width="75px" alt="Northeastern University Logo" /></a><br />
       <Link to="/Kanbas/Account" id="wd-account-link"
-        className="list-group-item text-center border-0 bg-black text-white">
+        className="list-group-item text-center border-0 bg-black text-white" rel="noreferrer">
         <FaRegCircleUser className="fs-1 text text-white" /><br />
         Account </Link><br />
       <Link to="/Kanbas/Dashboard" id="wd-dashboard-link"

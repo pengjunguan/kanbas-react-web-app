@@ -5,16 +5,16 @@ export default function BootstrapNavigation() {
             <h2>Tabs</h2>
             <ul className="nav nav-tabs">
                 <li className="nav-item">
-                    <a className="nav-link active" href="#">Active</a>
+                <button className="nav-link active">Active</button>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Link</a>
+                <button className="nav-link active">Link</button>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">Link</a>
+                <button className="nav-link active">Link</button>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link disabled" href="#">Disabled</a>
+                <button className="nav-link active">Disabled</button>
                 </li>
             </ul>
         </div>
@@ -24,7 +24,7 @@ export default function BootstrapNavigation() {
             <div className="card"
                     style={{ width: "18rem" }}>
                 <img src="images/stacked.jpg"
-                    className="card-img-top" />
+                    className="card-img-top" alt=""/>
                 <div className="card-body">
                     <h5 className="card-title">
                         Stacking Starship
@@ -32,9 +32,7 @@ export default function BootstrapNavigation() {
                     <p className="card-text">
                         Stacking the most powerful rocket in history. Mars or bust!
                     </p>
-                    <a href="#" className="btn btn-primary">
-                        Boldly Go
-                    </a>
+                    <button className="nav-link active"> Boldly Go</button>
                 </div>
             </div>
         </div>
