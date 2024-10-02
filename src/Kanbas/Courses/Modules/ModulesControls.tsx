@@ -34,9 +34,9 @@ export default function ModulesControls() {
           </li>
 
           <li>
-            <a id="wd-unpublish-modules-only" className="dropdown-item" href="#">
+            <button id="wd-unpublish-modules-only" className="dropdown-item" >
               <FaBan />
-              Unpublish modules only</a>
+              Unpublish modules only</button>
           </li>
 
         </ul>
