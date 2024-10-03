@@ -43,14 +43,14 @@ export default function ModulesControls() {
       </div>
       {/* Implement the View Progress and Collapse All buttons with IDs wd-view-progress and wd-collapse-all */}
 
-      <div id=" wd-view-progress" className="btn btn-secondary me-1 float-end">
-            <button id="wd-view-progress" className="btn btn-secondary me-1 float-end">
+      <div className="float-end">
+            <button id="wd-view-progress" className="btn btn-lg btn-secondary me-1">
             View Progress
             </button>
             </div>
 
-       <div id=" wd-collapse-all" className="btn btn-secondary me-1 float-end">
-        <button id="wd-collapse-all" className="btn btn-secondary me-1 float-end">
+       <div className="float-end">
+        <button id="wd-collapse-all" className="btn btn-lg btn-secondary me-1">
             Collapse All
     </button>
 

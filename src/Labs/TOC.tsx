@@ -1,23 +1,3 @@
-/* import { Link } from 'react-router-dom';
-
-export default function TOC() {
-    return (
-      <ul>
-        <li><Link to="/Labs">Labs</Link></li>
-        <li><Link to="/Labs/Lab1">Lab 1</Link></li>
-        <li><Link to="/Labs/Lab2">Lab 2</Link></li>
-        <li><Link to="/Labs/Lab3">Lab 3</Link></li>
-        <li><Link to="/Kanbas">Kanbas</Link></li>
-        <li>
-            <a id="wd-github" href="https://github.com/pengjunguan/kanbas-react-web-app.git">GitHub</a>
-        </li>
-      </ul>
-    );
-  }
-  
-   */
-
-
 import { useLocation } from "react-router";
 export default function TOC() {
   const { pathname } = useLocation();
@@ -30,29 +10,29 @@ export default function TOC() {
       </li>
       <li className="nav-item">
         <a id="wd-a1" href="#/Labs/Lab1"
-          className={`nav-link ${pathname.includes("Lab1") ? "active" : ""}`}>
+          className={`nav-link mx-2 ${pathname.includes("Lab1") ? "active" : ""}`}>
           Lab 1
         </a>
       </li>
       <li className="nav-item">
         <a id="wd-a2" href="#/Labs/Lab2"
-          className={`nav-link ${pathname.includes("Lab2") ? "active" : ""}`}>
+          className={`nav-link mx-2 ${pathname.includes("Lab2") ? "active" : ""}`}>
           Lab 2
         </a>
       </li>
       <li className="nav-item">
         <a id="wd-a3" href="#/Labs/Lab3"
-          className={`nav-link ${pathname.includes("Lab3") ? "active" : ""}`}>
+          className={`nav-link mx-2 ${pathname.includes("Lab3") ? "active" : ""}`}>
           Lab 3
         </a>
       </li>
       <li className="nav-item">
-        <a id="wd-k" href="#/Kanbas" className="nav-link">
+        <a id="wd-k" href="#/Kanbas" className="nav-link mx-2">
           Kanbas
         </a>
       </li>
       <li className="nav-item">
-        <a id="wd-k" href="https://github.com/pengjunguan" className="nav-link">
+        <a id="wd-k" href="https://github.com/jannunzi" className="nav-link">
           My GitHub
         </a>
       </li>

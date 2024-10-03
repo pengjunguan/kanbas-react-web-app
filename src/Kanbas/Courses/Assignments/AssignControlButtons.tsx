@@ -4,7 +4,7 @@ import { BsPlus } from "react-icons/bs";
 export default function LessonControlButtons() {
   return (
     <div className="float-end">
-      <button className="btn btn-secondary me-2" style={{ borderRadius: '20px' }}>
+      <button className="rounded-pill btn-secondary me-2" >
         40% of Total
       </button>
       <BsPlus />

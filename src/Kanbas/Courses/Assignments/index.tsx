@@ -11,7 +11,7 @@ export default function Assignments() {
       <AssignmentsControls /><br/><br /><br />
       <ul id="wd-assignments-title" className="list-group round-0 w-100">
         <li className="wd-assignment list-group-item p-0 mb-5 fs-5 border-gray">
-          <div className="we-title p-3 ps-2 bg-secondary d-flex justify-content-between align-items-center">
+          <div className="we-title p-3 ps-2 d-flex justify-content-between align-items-center" style={{ backgroundColor: '#f1f2f3'}}>
             <div>
               <BsGripVertical className="me-2 fs-3" /> <GoTriangleDown /> ASSIGNMENTS
             </div>
@@ -27,7 +27,7 @@ export default function Assignments() {
                 <div>
                   <a className="wd-assignment-link" href="#/Kanbas/Courses/1234/Assignments/123" style={{ color: 'black', textDecoration: 'none' }}>A1</a>
                   <br />
-                  <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 6 at 12:00am
+                  <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 6 at 12:00am |
                   <br />
                   <span><b>Due</b> May 13 at 11:59pm | 100 pts</span>
                 </div>
@@ -45,7 +45,7 @@ export default function Assignments() {
                 <div>
                   <a className="wd-assignment-link" href="#/Kanbas/Courses/1234/Assignments/123" style={{ color: 'black', textDecoration: 'none' }}>A2</a>
                   <br />
-                  <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 13 at 12:00am
+                  <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 13 at 12:00am |
                   <br />
                   <span><b>Due</b> May 20 at 11:59pm | 100 pts</span>
                 </div>
@@ -63,7 +63,7 @@ export default function Assignments() {
                 <div>
                   <a className="wd-assignment-link" href="#/Kanbas/Courses/1234/Assignments/123" style={{ color: 'black', textDecoration: 'none' }}>A3</a>
                   <br />
-                  <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 20 at 12:00am
+                  <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 20 at 12:00am |
                   <br />
                   <span><b>Due</b> May 27 at 11:59pm | 100 pts</span>
                 </div>

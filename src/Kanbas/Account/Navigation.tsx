@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "./Navigation.css"; // 创建一个外部 CSS 文件，用于控制竖线
+import "./Navigation.css"; 
 
 export default function AccountNavigation() {
   return (

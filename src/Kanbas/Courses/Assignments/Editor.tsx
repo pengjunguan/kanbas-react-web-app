@@ -18,7 +18,7 @@ export default function AssignmentEditor() {
           <td align="right" valign="top">
             <label htmlFor="wd-points">Points</label>
           </td>
-          <td >
+          <td className="ps-3">
             <input id="wd-points" className="form-control" value={100} />
           </td>
         </tr>
@@ -28,7 +28,7 @@ export default function AssignmentEditor() {
           <td align="right" valign="top">
             <label htmlFor="wd-group">Assignment Group</label>
           </td>
-          <td>
+          <td className="ps-3">
             <select id="wd-group" className="form-select"> 
               <option value="ASSIGNMENTS" selected>ASSIGNMENTS</option>
               <option value="QUIZZES">QUIZZES</option>
@@ -43,7 +43,7 @@ export default function AssignmentEditor() {
           <td align="right" valign="top">
             <label htmlFor="wd-display-grade-as">Display Grade as</label>
           </td>
-          <td>
+          <td className="ps-3">
             <select id="wd-display-grade-as" className="form-select">
               <option selected value="Percentage">Percentage</option>
               <option value="Letter Grades">Letter Grades</option>
@@ -58,8 +58,8 @@ export default function AssignmentEditor() {
   <td align="right" valign="top">
     <label htmlFor="wd-submission-type">Submission Type</label>
   </td>
-  <td>
-    <div className="border p-3"> {/* 边框和内边距的容器 */}
+  <td className="ps-3">
+    <div className="border p-3"> 
       <select id="wd-submission-type" className="form-select mb-3">
         <option selected value="Online">Online</option>
         <option value="In Class">In Class</option>
@@ -96,7 +96,7 @@ export default function AssignmentEditor() {
   <td align="right" valign="top">
     <label htmlFor="wd-assign-to" className="form-label">Assign to</label>
   </td>
-  <td>
+  <td className="ps-3">
     <div className="border p-3"> 
       <div className="mb-3">
         <label htmlFor="wd-assign-to"><b>Assign to</b></label>
@@ -141,7 +141,6 @@ export default function AssignmentEditor() {
     </div>
   </td>
 </tr>
-
 
         </table>
         <hr />
