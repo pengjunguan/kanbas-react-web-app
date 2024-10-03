@@ -8,7 +8,7 @@ export default function Profile() {
              type="password" className="form-control"/><br/>
       <input id="wd-firstname" value="Alice" placeholder="First Name" className="form-control"/><br/>
       <input id="wd-lastname" value="Wonderland" placeholder="Last Name" className="form-control"/><br/>
-      <input id="wd-dob" value="2000-01-01" type="date" className="form-control"/><br/>
+      <input id="wd-dob" type="date" className="form-control"/><br/>
       <input id="wd-email" value="alice@wonderland" type="email" className="form-control"/><br/>
       <input id="wd-user" value="User" type="user" className="form-control"/><br/>
       <br/>
