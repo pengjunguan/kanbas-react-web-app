@@ -29,3 +29,10 @@ body * {  font-family: Arial, Helvetica, sans-serif;  }
 .wd-lesson {
   border-left: 3px solid green !important;
 }
+
+
+@media (max-width: 1220px) {
+  #wd-course-status {
+    display: none !important;
+  }
+}
