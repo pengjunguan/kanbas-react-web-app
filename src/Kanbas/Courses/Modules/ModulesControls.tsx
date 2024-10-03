@@ -1,6 +1,6 @@
 import { FaPlus } from "react-icons/fa6";
 import GreenCheckmark from "./GreenCheckmark";
-import { FaBan } from "react-icons/fa";
+import { MdDoNotDisturbAlt } from "react-icons/md";
 export default function ModulesControls() {
   return (
     <div id="wd-modules-controls" className="text-nowrap">
@@ -29,13 +29,13 @@ export default function ModulesControls() {
 
           <li>
             <button id="wd-unpublish-all-modules-and-items" className="dropdown-item">
-              <FaBan />
+              <MdDoNotDisturbAlt />
               Unpublish all modules and items</button>
           </li>
 
           <li>
             <button id="wd-unpublish-modules-only" className="dropdown-item" >
-              <FaBan />
+              <MdDoNotDisturbAlt />
               Unpublish modules only</button>
           </li>
 
