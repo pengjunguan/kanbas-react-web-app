@@ -4,8 +4,14 @@ import AssignmentsControlButtons from "./AssignmentsControlButtons";
 import AssignControlButtons from "./AssignControlButtons";
 import { PiNotePencilLight } from "react-icons/pi";
 import { GoTriangleDown } from "react-icons/go";
+import { useParams } from "react-router";
+import * as db from "../../Database";  
 
 export default function Assignments() {
+  const { cid } = useParams();  
+  const assignments = db.assignments; 
+  const courseAssignments = assignments.filter((assignment) => assignment.course === cid);
+
   return (
     <div id="wd-assignments">
       <AssignmentsControls /><br/><br /><br />
@@ -19,59 +25,27 @@ export default function Assignments() {
           </div>
 
           <ul id="wd-assignment-list" className="list-group rounded-0">
-            {/* Assignment 1 */}
-            <li className="wd-assignment-list-item list-group-item d-flex justify-content-between align-items-center position-relative" style={{ borderLeft: '5px solid green', paddingLeft: '10px' }}>
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <PiNotePencilLight className="me-2 fs-3" />
-                <div>
-                  <a className="wd-assignment-link" href="#/Kanbas/Courses/1234/Assignments/123" style={{ color: 'black', textDecoration: 'none' }}>A1</a>
-                  <br />
-                  <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 6 at 12:00am |
-                  <br />
-                  <span><b>Due</b> May 13 at 11:59pm | 100 pts</span>
+            {/* Loop through filtered assignments */}
+            {courseAssignments.map((assignment) => (
+              <li key={assignment._id} className="wd-assignment-list-item list-group-item d-flex justify-content-between align-items-center position-relative" style={{ borderLeft: '5px solid green', paddingLeft: '10px' }}>
+                <div className="d-flex align-items-center">
+                  <BsGripVertical className="me-2 fs-3" />
+                  <PiNotePencilLight className="me-2 fs-3" />
+                  <div>
+                    <a className="wd-assignment-link" href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`} style={{ color: 'black', textDecoration: 'none' }}>
+                      {assignment.title}
+                    </a>
+                    <br />
+                    <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 6 at 12:00am |
+                    <br />
+                    <span><b>Due</b> May 13 at 11:59pm | 100 pts</span>
+                  </div>
                 </div>
-              </div>
-              <div className="d-flex align-items-center">
-                <AssignmentsControlButtons />
-              </div>
-            </li>
-
-            {/* Assignment 2 */}
-            <li className="wd-assignment-list-item list-group-item d-flex justify-content-between align-items-center position-relative" style={{ borderLeft: '5px solid green', paddingLeft: '10px' }}>
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <PiNotePencilLight className="me-2 fs-3" />
-                <div>
-                  <a className="wd-assignment-link" href="#/Kanbas/Courses/1234/Assignments/123" style={{ color: 'black', textDecoration: 'none' }}>A2</a>
-                  <br />
-                  <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 13 at 12:00am |
-                  <br />
-                  <span><b>Due</b> May 20 at 11:59pm | 100 pts</span>
+                <div className="d-flex align-items-center">
+                  <AssignmentsControlButtons />
                 </div>
-              </div>
-              <div className="d-flex align-items-center">
-                <AssignmentsControlButtons />
-              </div>
-            </li>
-
-            {/* Assignment 3 */}
-            <li className="wd-assignment-list-item list-group-item d-flex justify-content-between align-items-center position-relative" style={{ borderLeft: '5px solid green', paddingLeft: '10px' }}>
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <PiNotePencilLight className="me-2 fs-3" />
-                <div>
-                  <a className="wd-assignment-link" href="#/Kanbas/Courses/1234/Assignments/123" style={{ color: 'black', textDecoration: 'none' }}>A3</a>
-                  <br />
-                  <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 20 at 12:00am |
-                  <br />
-                  <span><b>Due</b> May 27 at 11:59pm | 100 pts</span>
-                </div>
-              </div>
-              <div className="d-flex align-items-center">
-                <AssignmentsControlButtons />
-              </div>
-            </li>
+              </li>
+            ))}
           </ul>
         </li>
       </ul>
