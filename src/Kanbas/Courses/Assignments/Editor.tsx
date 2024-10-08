@@ -11,7 +11,7 @@ export default function AssignmentEditor() {
   const assignment = assignments.find((a) => a._id === aid);
 
   const [assignmentData] = useState({
-    title: assignment ? "A1":"",
+    title: assignment ? "A101":"",
     description: assignment ? "The assignment is available online" : "",
     points: assignment ? 100 : 0,
     dueDate: "May 13, 2024, 11:59 PM",

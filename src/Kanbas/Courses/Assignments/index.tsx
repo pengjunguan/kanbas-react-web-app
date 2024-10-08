@@ -33,10 +33,10 @@ export default function Assignments() {
                   <PiNotePencilLight className="me-2 fs-3" />
                   <div>
                     <a className="wd-assignment-link" href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`} style={{ color: 'black', textDecoration: 'none' }}>
-                      {assignment.title}
+                      {assignment._id}
                     </a>
                     <br />
-                    <span style={{ color: 'red' }}>Multiple Modules</span> | <b>Not available until</b> May 6 at 12:00am |
+                    <span style={{ color: 'red' }}>{assignment.title}</span> | <b>Not available until</b> May 6 at 12:00am |
                     <br />
                     <span><b>Due</b> May 13 at 11:59pm | 100 pts</span>
                   </div>
