@@ -7,11 +7,20 @@ export default function AssignmentEditor() {
   const { cid, aid } = useParams(); 
   const assignments = db.assignments;
   
+  const titleMapping = {
+    A101: "A101",
+    A102: "A102",
+    A103: "A103",
+  };
  
   const assignment = assignments.find((a) => a._id === aid);
 
+  console.log("aid from params:", aid);
+  console.log("Assignment found:", assignment);
+  console.log("Assignment ID:", assignment?._id);
+
   const [assignmentData] = useState({
-    title: assignment ? "A101":"",
+    title: assignment ? titleMapping[assignment._id as keyof typeof titleMapping] || "Assignment" : "Assignment",
     description: assignment ? "The assignment is available online" : "",
     points: assignment ? 100 : 0,
     dueDate: "May 13, 2024, 11:59 PM",
@@ -117,5 +126,4 @@ export default function AssignmentEditor() {
     </div>
   );
 }
-
 
