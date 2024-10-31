@@ -1,7 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import "./Navigation.css"; 
 
 export default function AccountNavigation() {
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const links = currentUser ? ["Profile"] : ["Signin", "Signup"];
+  const { pathname } = useLocation();
+
   return (
     <div id="wd-account-navigation" style={{ display: "flex", flexDirection: "column" }}>
       <NavLink

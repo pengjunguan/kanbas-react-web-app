@@ -7,13 +7,15 @@ import { Navigate, Route, Routes, useParams, useLocation } from "react-router";
 import { FaAlignJustify } from "react-icons/fa6";
 import PeopleTable from "./People/Table";
 import { courses } from "../Database";
+import ProtectedRoute from "../Account/ProtectedRoute";
+import { useSelector } from "react-redux";
 
 
-export default function Courses() {
+export default function Courses({ courses }: { courses: any[]; }) {
     const { cid } = useParams();
     const course = courses.find((course) => course._id === cid);
     const { pathname } = useLocation();
-
+    const { currentUser } = useSelector((state: any) => state.accountReducer); 
     return (
       <div id="wd-courses">
         <h2 className="text-danger">
@@ -28,13 +30,28 @@ export default function Courses() {
               <Routes>
                 <Route path="/" element={<Navigate to="Home" />} />
                 <Route path="Home" element={<Home />} />
-                <Route path="Modules" element={<Modules />} />
-                <Route path="Assignments" element={<Assignments />} />
+                <Route path="Modules" element={<ProtectedRoute><Modules /></ProtectedRoute>} />
+                <Route path="Assignments" element={<ProtectedRoute><Assignments /></ProtectedRoute>} />
                 <Route path="Assignments/:aid" element={<AssignmentEditor />} />
                 <Route path="People" element={<PeopleTable />} />
 
               </Routes>
-              </div></div>
+              {currentUser.role === "FACULTY" && course && (
+                <>
+              <div className="course-edit-buttons">
+                <button className="btn btn-primary" onClick={() => console.log("Add Module")}>
+                  Add Module
+                </button>
+                <button className="btn btn-warning" onClick={() => console.log("Edit Course")}>
+                  Edit Course
+                </button>
+                <button className="btn btn-danger" onClick={() => console.log("Delete Course")}>
+                  Delete Course
+                </button>
+              </div>
+              </>)}
+          </div>
+        </div>
       </div>
-);}
-  
+    );
+}

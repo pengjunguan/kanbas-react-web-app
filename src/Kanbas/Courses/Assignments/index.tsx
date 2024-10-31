@@ -1,10 +1,10 @@
+import { useNavigate, useParams } from "react-router";
 import AssignmentsControls from "./AssignmentsControls";
 import { BsGripVertical } from "react-icons/bs";
 import AssignmentsControlButtons from "./AssignmentsControlButtons";
 import AssignControlButtons from "./AssignControlButtons";
 import { PiNotePencilLight } from "react-icons/pi";
 import { GoTriangleDown } from "react-icons/go";
-import { useParams } from "react-router";
 import * as db from "../../Database";  
 
 export default function Assignments() {
@@ -12,9 +12,12 @@ export default function Assignments() {
   const assignments = db.assignments; 
   const courseAssignments = assignments.filter((assignment) => assignment.course === cid);
 
+  const navigate = useNavigate();
+
   return (
     <div id="wd-assignments">
-      <AssignmentsControls /><br/><br /><br />
+      
+      <AssignmentsControls onAddAssignmentClick={() => navigate(`/Kanbas/Courses/${cid}/Assignments/new`)} /><br /><br /><br />
       <ul id="wd-assignments-title" className="list-group round-0 w-100">
         <li className="wd-assignment list-group-item p-0 mb-5 fs-5 border-gray">
           <div className="we-title p-3 ps-2 d-flex justify-content-between align-items-center" style={{ backgroundColor: '#f1f2f3'}}>
@@ -25,7 +28,6 @@ export default function Assignments() {
           </div>
 
           <ul id="wd-assignment-list" className="list-group rounded-0">
-            {/* Loop through filtered assignments */}
             {courseAssignments.map((assignment) => (
               <li key={assignment._id} className="wd-assignment-list-item list-group-item d-flex justify-content-between align-items-center position-relative" style={{ borderLeft: '5px solid green', paddingLeft: '10px' }}>
                 <div className="d-flex align-items-center">
@@ -52,3 +54,4 @@ export default function Assignments() {
     </div>
   );
 }
+

@@ -1,31 +1,53 @@
 import { FaRegCalendarAlt } from "react-icons/fa";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import * as db from "../../Database";  
+import * as db from "../../Database";
 
 export default function AssignmentEditor() {
-  const { cid, aid } = useParams(); 
+  const { cid, aid } = useParams();
+  const navigate = useNavigate();
   const assignments = db.assignments;
-  
-  const titleMapping = {
-    A101: "A101",
-    A102: "A102",
-    A103: "A103",
-  };
- 
+
   const assignment = assignments.find((a) => a._id === aid);
 
-  console.log("aid from params:", aid);
-  console.log("Assignment found:", assignment);
-  console.log("Assignment ID:", assignment?._id);
-
-  const [assignmentData] = useState({
-    title: assignment ? titleMapping[assignment._id as keyof typeof titleMapping] || "Assignment" : "Assignment",
+  // Set up state for editable fields, ensuring course has a fallback value
+  const [assignmentData, setAssignmentData] = useState({
+    title: assignment ? assignment._id : "Assignment",
     description: assignment ? "The assignment is available online" : "",
     points: assignment ? 100 : 0,
     dueDate: "May 13, 2024, 11:59 PM",
     availableFrom: "May 6, 2024, 12:00 PM",
+    availableUntil: "",
+    course: cid || "default-course", // Fallback to "default-course" if cid is undefined
   });
+
+  // Define the type for fields you expect to update
+  type AssignmentField = "title" | "description" | "points" | "dueDate" | "availableFrom" | "availableUntil" | "course";
+
+  // Handle input change for each field with explicit types
+  const handleInputChange = (field: AssignmentField, value: string | number) => {
+    setAssignmentData(prevData => ({
+      ...prevData,
+      [field]: value,
+    }));
+  };
+
+  // Function to handle saving the assignment
+  const handleSave = () => {
+    // Ensure _id is generated and course has a valid string
+    assignments.push({
+      _id: `A${assignments.length + 1}`, // Generate a new ID based on the array length
+      ...assignmentData,
+    });
+    // Navigate back to the assignments screen
+    navigate(`/Kanbas/Courses/${cid}/Assignments`);
+  };
+
+  // Function to handle canceling the edit
+  const handleCancel = () => {
+    // Navigate back to the assignments screen without saving
+    navigate(`/Kanbas/Courses/${cid}/Assignments`);
+  };
 
   return (
     <div id="wd-assignments-editor">
@@ -34,6 +56,7 @@ export default function AssignmentEditor() {
         id="wd-name"
         className="form-control"
         value={assignmentData.title}
+        onChange={(e) => handleInputChange("title", e.target.value)}
       /><br /><br />
 
       <textarea
@@ -42,6 +65,7 @@ export default function AssignmentEditor() {
         cols={45}
         rows={9}
         value={assignmentData.description}
+        onChange={(e) => handleInputChange("description", e.target.value)}
       /><br /><br />
 
       <div className="row justify-content-end">
@@ -51,6 +75,7 @@ export default function AssignmentEditor() {
             id="wd-points"
             className="form-control"
             value={assignmentData.points}
+            onChange={(e) => handleInputChange("points", Number(e.target.value))}
             style={{ width: "100%" }} 
           />
         </div>
@@ -74,6 +99,7 @@ export default function AssignmentEditor() {
                   type="text"
                   className="form-control"
                   value={assignmentData.dueDate}
+                  onChange={(e) => handleInputChange("dueDate", e.target.value)}
                 />
                 <span className="input-group-text">
                   <FaRegCalendarAlt />
@@ -90,6 +116,7 @@ export default function AssignmentEditor() {
                     type="text"
                     className="form-control"
                     value={assignmentData.availableFrom}
+                    onChange={(e) => handleInputChange("availableFrom", e.target.value)}
                   />
                   <span className="input-group-text">
                     <FaRegCalendarAlt />
@@ -103,6 +130,8 @@ export default function AssignmentEditor() {
                     id="wd-available-until"
                     type="text"
                     className="form-control"
+                    value={assignmentData.availableUntil}
+                    onChange={(e) => handleInputChange("availableUntil", e.target.value)}
                   />
                   <span className="input-group-text">
                     <FaRegCalendarAlt />
@@ -116,14 +145,16 @@ export default function AssignmentEditor() {
 
       <hr />
       <div className="d-flex justify-content-end mt-3">
-        <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-secondary me-2">
+        <button onClick={handleCancel} className="btn btn-secondary me-2">
           Cancel
-        </Link>
-        <Link to={`/Kanbas/Courses/${cid}/Assignments`} className="btn btn-danger">
+        </button>
+        <button onClick={handleSave} className="btn btn-danger">
           Save
-        </Link>
+        </button>
       </div>
     </div>
   );
 }
+
+
 
