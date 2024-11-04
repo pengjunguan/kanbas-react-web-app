@@ -29,7 +29,6 @@ export default function Dashboard(
       dispatch({ type: "UNENROLL_COURSE", payload: courseId });
     }
   };
-
   return (
     <div id="wd-dashboard">
       <h1 id="wd-dashboard-title">Dashboard</h1> <hr />

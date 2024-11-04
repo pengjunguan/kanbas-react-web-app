@@ -10,9 +10,7 @@ import ObjectStateVariable from "./ObjectStateVariable";
 import ArrayStateVariable from "./ArrayStateVariable";
 import ParentStateComponent from "./ParentStateComponent";
 import ReduxExamples from "./ReduxExamples";
-import HelloRedux from "./ReduxExamples/HelloRedux";
-import CounterRedux from "./ReduxExamples/CounterRedux";
-import AddRedux from "./ReduxExamples/AddRedux";
+
 
 export default function Lab1() {
     function sayHello() {
@@ -33,9 +31,6 @@ export default function Lab1() {
         <ArrayStateVariable />
         <ParentStateComponent />
         <ReduxExamples/>
-        <HelloRedux />
-        <CounterRedux />
-        <AddRedux />
       </div>
     );
   }

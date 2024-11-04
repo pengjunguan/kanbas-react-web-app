@@ -1,13 +1,22 @@
 import { IoEllipsisVertical } from "react-icons/io5";
 import { BsPlus } from "react-icons/bs";
 
-export default function LessonControlButtons() {
+export default function AssignControlButtons() {
   return (
-    <div className="float-end">
-      <button className="rounded-pill btn-secondary me-2" >
+    <div className="d-flex align-items-center">
+      <div
+        className="me-3 border border-grey rounded-pill p-2 m-2"
+        style={{
+          padding: "5px 20px", 
+          borderRadius: "20px", 
+          border: "1px solid #ddd", 
+          backgroundColor: "#f9f9f9",
+        }}
+      >
         40% of Total
-      </button>
+      </div>
       <BsPlus />
-      <IoEllipsisVertical className="fs-4" />
+      <IoEllipsisVertical className="fs-4 me-2" />
     </div>
-);}
+  );
+}
