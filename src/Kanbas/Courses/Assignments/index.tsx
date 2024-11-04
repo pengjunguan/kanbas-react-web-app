@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaTrash } from "react-icons/fa6";
 import LessonControlButtons from "./AssignmentsControlButtons";
 import { deleteAssignment } from "./reducer";
-import { IoAdd, IoEllipsisVertical } from "react-icons/io5";
 import AssignmentEdit from "./AssignmentEdit";
 
 export default function Assignments() {

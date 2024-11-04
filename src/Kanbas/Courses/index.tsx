@@ -6,7 +6,6 @@ import AssignmentEditor from "./Assignments/Editor";
 import { Navigate, Route, Routes, useParams, useLocation } from "react-router";
 import { FaAlignJustify } from "react-icons/fa6";
 import PeopleTable from "./People/Table";
-import { courses } from "../Database";
 import ProtectedRoute from "../Account/ProtectedRoute";
 import { useSelector } from "react-redux";
 

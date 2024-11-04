@@ -5,8 +5,8 @@ import "./Navigation.css";
 
 export default function AccountNavigation() {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
-  const links = currentUser ? ["Profile"] : ["Signin", "Signup"];
-  const { pathname } = useLocation();
+  /* const links = currentUser ? ["Profile"] : ["Signin", "Signup"]; */
+  /* const { pathname } = useLocation(); */
 
   return (
     <div id="wd-account-navigation" style={{ display: "flex", flexDirection: "column" }}>
