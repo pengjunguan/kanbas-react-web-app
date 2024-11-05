@@ -30,9 +30,9 @@ export default function Dashboard({
     }
   }, [dispatch]);
 
-/*   useEffect(() => {
+  useEffect(() => {
     saveEnrollmentsToLocalStorage();
-  }, [enrollments]); */
+  }, [enrollments]);
 
   const handleEnrollmentToggle = (courseId: string, isEnrolled: boolean) => {
     if (isEnrolled) {
