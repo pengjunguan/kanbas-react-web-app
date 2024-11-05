@@ -30,10 +30,23 @@ export default function Dashboard({
     }
   }, [dispatch]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     saveEnrollmentsToLocalStorage();
   }, [enrollments]);
+ */
 
+  useEffect(() => {
+    const saveEnrollmentsToLocalStorage = () => {
+      const stateEnrollments = enrollments.filter(
+        (enrollment: { user: any; }) => enrollment.user === currentUser._id
+      );
+      localStorage.setItem("enrollments", JSON.stringify(stateEnrollments));
+    };
+    
+    saveEnrollmentsToLocalStorage();
+  }, [enrollments, currentUser._id]);
+
+  
   const handleEnrollmentToggle = (courseId: string, isEnrolled: boolean) => {
     if (isEnrolled) {
       dispatch(unenrollCourse({ userId: currentUser._id, courseId }));
@@ -42,12 +55,12 @@ export default function Dashboard({
     }
   };
 
-  const saveEnrollmentsToLocalStorage = () => {
+  /* const saveEnrollmentsToLocalStorage = () => {
     const stateEnrollments = enrollments.filter(
       (enrollment: any) => enrollment.user === currentUser._id
     );
     localStorage.setItem("enrollments", JSON.stringify(stateEnrollments));
-  };
+  }; */
 
   return (
     <div id="wd-dashboard">
