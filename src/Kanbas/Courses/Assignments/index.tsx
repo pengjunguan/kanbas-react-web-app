@@ -15,6 +15,7 @@ export default function Assignments() {
   const assignments = useSelector(
     (state: any) => state.assignmentReducer
   ).assignments.filter((assignment: any) => assignment.course === cid);
+  const { currentUser } = useSelector((state: any) => state.accountReducer); 
   const dispatch = useDispatch();
 
   const handleRemoveAssignment = (assignmentId: any) => {
@@ -69,6 +70,8 @@ export default function Assignments() {
                 | <span>{assignment.points}</span>
               </span>
             </div>
+            {currentUser.role === "FACULTY" && (
+              <>
             <div className="ms-auto">
               <FaTrash
                 className="text-danger me-2 mb-1"
@@ -78,6 +81,7 @@ export default function Assignments() {
               />
               <LessonControlButtons />
             </div>
+            </>)}
             <AssignmentEdit 
               assignmentId={assignment._id} 
               removeAssignment={() => handleRemoveAssignment(assignment._id)}
