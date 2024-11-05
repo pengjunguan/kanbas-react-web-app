@@ -5,17 +5,17 @@ import { useNavigate, useParams } from "react-router-dom";
 
 type AssignmentsControlsProps = {
   onAddAssignmentClick?: () => void;
-  cid?: string; // Optional cid prop for custom navigation
+  cid?: string; 
 };
 
 export default function AssignmentsControls({ onAddAssignmentClick, cid }: AssignmentsControlsProps) {
   const navigate = useNavigate();
   const params = useParams();
   
-  // 使用传入的 `cid` 或者从 `useParams` 获取 `cid`
+  
   const courseId = cid || params.cid;
 
-  // 如果没有提供 onAddAssignmentClick，则使用默认的导航逻辑
+  
   const handleAddAssignment = onAddAssignmentClick || (() => {
     if (courseId) {
       navigate(`/Kanbas/Courses/${courseId}/Assignments/${new Date().getTime().toString()}`);

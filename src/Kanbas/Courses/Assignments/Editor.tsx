@@ -161,7 +161,7 @@ export default function AssignmentEditor() {
             id="wd-assign-details"
             className="col-md-6"
             style={{
-              border: "1px solid #ddd", // 浅灰色边框
+              border: "1px solid #ddd", 
               padding: "15px",
               borderRadius: "5px",
             }}

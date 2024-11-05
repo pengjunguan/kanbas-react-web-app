@@ -14,7 +14,7 @@ export default function Courses({ courses }: { courses: any[]; }) {
     const { cid } = useParams();
     const course = courses.find((course) => course._id === cid);
     const { pathname } = useLocation();
-    const { currentUser } = useSelector((state: any) => state.accountReducer); 
+    /* const { currentUser } = useSelector((state: any) => state.accountReducer);  */
     return (
       <div id="wd-courses">
         <h2 className="text-danger">

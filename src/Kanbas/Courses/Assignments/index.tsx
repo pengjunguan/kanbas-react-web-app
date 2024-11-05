@@ -17,7 +17,6 @@ export default function Assignments() {
   ).assignments.filter((assignment: any) => assignment.course === cid);
   const dispatch = useDispatch();
 
-  // 修改 handleRemoveAssignment 函数以接收作业的 ID
   const handleRemoveAssignment = (assignmentId: any) => {
     dispatch(deleteAssignment(assignmentId));
   };
@@ -74,13 +73,13 @@ export default function Assignments() {
               <FaTrash
                 className="text-danger me-2 mb-1"
                 data-bs-toggle="modal"
-                data-bs-target={`#deleteModal-${assignment._id}`} // 为每个作业设置唯一的模态框ID
+                data-bs-target={`#deleteModal-${assignment._id}`} 
                 style={{ fontSize: '1.1em' }}
               />
               <LessonControlButtons />
             </div>
             <AssignmentEdit 
-              assignmentId={assignment._id} // 传递作业的 ID
+              assignmentId={assignment._id} 
               removeAssignment={() => handleRemoveAssignment(assignment._id)}
             />
           </li>

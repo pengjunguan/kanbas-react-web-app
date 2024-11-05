@@ -1,4 +1,4 @@
-import { enrollCourse, unenrollCourse } from './EnrollmentReducer'; // 确保路径正确
+import { enrollCourse, unenrollCourse } from './EnrollmentReducer'; 
 
 export const enrollInCourse = (userId: string, courseId: string) => enrollCourse({ userId, courseId });
 

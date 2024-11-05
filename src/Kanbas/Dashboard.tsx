@@ -1,5 +1,3 @@
-// Dashboard.tsx
-
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { enrollCourse, unenrollCourse, loadEnrollments } from "./EnrollmentReducer";
@@ -25,7 +23,6 @@ export default function Dashboard({
   const dispatch = useDispatch();
   const [showAllCourses, setShowAllCourses] = useState(false);
 
-  // 加载本地存储中的 enrollments
   useEffect(() => {
     const storedEnrollments = JSON.parse(localStorage.getItem("enrollments") || "[]");
     if (storedEnrollments.length) {
@@ -33,9 +30,9 @@ export default function Dashboard({
     }
   }, [dispatch]);
 
-  useEffect(() => {
+/*   useEffect(() => {
     saveEnrollmentsToLocalStorage();
-  }, [enrollments]);
+  }, [enrollments]); */
 
   const handleEnrollmentToggle = (courseId: string, isEnrolled: boolean) => {
     if (isEnrolled) {
