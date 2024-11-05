@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { addAssignment, updateAssignment } from "./reducer";
 
 export default function AssignmentEditor() {
-  const { cid, id } = useParams();
+  const { cid, aid } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const assignments = useSelector((state: any) => state.assignmentReducer).assignments;
-  const isEdit = assignments.findIndex((a: any) => a._id === id) !== -1;
-  const assignment = assignments.find((a: any) => a._id === id) || {
-    _id: id,
+  const isEdit = assignments.findIndex((a: any) => a._id === aid) !== -1;
+  const assignment = assignments.find((a: any) => a._id === aid) || {
+    _id: aid,
     title: "New Assignment",
     description: "New Description",
     points: 100,

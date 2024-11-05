@@ -35,7 +35,7 @@ export default function Courses({ courses }: { courses: any[]; }) {
                 <Route path="People" element={<PeopleTable />} />
 
               </Routes>
-              {currentUser.role === "FACULTY" && course && (
+{/*               {currentUser.role === "FACULTY" && course && (
                 <>
               <div className="course-edit-buttons">
                 <button className="btn btn-primary" onClick={() => console.log("Add Module")}>
@@ -48,7 +48,7 @@ export default function Courses({ courses }: { courses: any[]; }) {
                   Delete Course
                 </button>
               </div>
-              </>)}
+              </>)} */}
           </div>
         </div>
       </div>
