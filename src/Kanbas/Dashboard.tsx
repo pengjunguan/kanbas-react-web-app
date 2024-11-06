@@ -21,7 +21,6 @@ export default function Dashboard({
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const enrollments = useSelector((state: any) => state.enrollmentReducer.enrollments);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [showAllCourses, setShowAllCourses] = useState(false);
 
   useEffect(() => {
