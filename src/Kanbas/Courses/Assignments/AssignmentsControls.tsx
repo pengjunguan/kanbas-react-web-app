@@ -1,7 +1,9 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa6";
 import { SlMagnifier } from "react-icons/sl";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+
 
 type AssignmentsControlsProps = {
   onAddAssignmentClick?: () => void;
@@ -11,7 +13,7 @@ type AssignmentsControlsProps = {
 export default function AssignmentsControls({ onAddAssignmentClick, cid }: AssignmentsControlsProps) {
   const navigate = useNavigate();
   const params = useParams();
-  
+  const { currentUser } = useSelector((state: any) => state.accountReducer); 
   
   const courseId = cid || params.cid;
 
@@ -36,7 +38,8 @@ export default function AssignmentsControls({ onAddAssignmentClick, cid }: Assig
           className="form-control border-start-0"
         />
       </div>
-
+      {currentUser.role === "FACULTY" && (
+        <>
       <div className="d-flex">
         <button id="wd-add-assignment-group" className="btn btn-outline-secondary me-1">
           <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
@@ -52,6 +55,8 @@ export default function AssignmentsControls({ onAddAssignmentClick, cid }: Assig
           Assignment
         </button>
       </div>
+      </>
+      )}
     </div>
   );
 }
