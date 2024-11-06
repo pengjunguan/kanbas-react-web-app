@@ -36,3 +36,8 @@ body * {  font-family: Arial, Helvetica, sans-serif;  }
     display: none !important;
   }
 }
+
+
+.dashboard-title {
+  font-size: 36px;
+}

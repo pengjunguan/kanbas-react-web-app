@@ -66,8 +66,8 @@ export default function Dashboard({
     <div id="wd-dashboard">
         {currentUser.role === "FACULTY" && (
         <>
-          <h5>
-            New Course
+          <h5 className="dashboard-title">
+            DashBoard
             <button
               className="btn btn-primary float-end"
               id="wd-add-new-course-click"
