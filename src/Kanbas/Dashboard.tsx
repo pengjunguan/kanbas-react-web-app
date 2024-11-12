@@ -112,14 +112,14 @@ export default function Dashboard({
       <div id="wd-dashboard-courses" className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
           {courses
-            .filter((course) => {
+            /* .filter((course) => {
               if (currentUser.role !== "STUDENT") return true;
               const isEnrolled = enrollments.some(
                 (enrollment: any) =>
                   enrollment.user === currentUser._id && enrollment.course === course._id
               );
               return showAllCourses || isEnrolled;
-            })
+            }) */
             .map((course: any) => {
               const isEnrolled = enrollments.some(
                 (enrollment: any) =>
