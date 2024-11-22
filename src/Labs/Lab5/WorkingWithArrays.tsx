@@ -11,7 +11,7 @@ export default function WorkingWithArrays() {
     completed: false,
   });  
 
-  const updateDescription = async () => {
+/*   const updateDescription = async () => {
     await fetch(`${API}/${todo.id}/description/${todo.description}`, {
       method: "GET",
     });
@@ -21,7 +21,7 @@ export default function WorkingWithArrays() {
     await fetch(`${API}/${todo.id}/completed/${todo.completed}`, {
       method: "GET",
     });
-  };
+  }; */
 
   return (
     <div id="wd-working-with-arrays">
