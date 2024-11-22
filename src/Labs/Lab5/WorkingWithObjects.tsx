@@ -111,8 +111,7 @@ export default function WorkingWithObjects() {
         <a
           id="wd-update-assignment-completed"
           className="btn btn-primary float-end"
-          href="#"
-          onClick={updateAssignmentCompleted}
+          href={`${ASSIGNMENT_API_URL}/complete/${assignment.completed}`}
         >
           Update Completed
         </a>

@@ -10,7 +10,7 @@ interface EnrollmentState {
 }
 
 const initialState: EnrollmentState = {
-  enrollments: [],
+  enrollments: JSON.parse(localStorage.getItem("enrollments") || "[]"),
 };
 
 const enrollmentSlice = createSlice({
@@ -18,13 +18,16 @@ const enrollmentSlice = createSlice({
   initialState,
   reducers: {
     enrollCourse: (state, action: PayloadAction<{ userId: string; courseId: string }>) => {
-      state.enrollments.push({ user: action.payload.userId, course: action.payload.courseId });
+      const newEnrollment = { user: action.payload.userId, course: action.payload.courseId };
+      state.enrollments.push(newEnrollment);
+      localStorage.setItem("enrollments", JSON.stringify(state.enrollments));
     },
     unenrollCourse: (state, action: PayloadAction<{ userId: string; courseId: string }>) => {
       state.enrollments = state.enrollments.filter(
         (enrollment) =>
           !(enrollment.user === action.payload.userId && enrollment.course === action.payload.courseId)
       );
+      localStorage.setItem("enrollments", JSON.stringify(state.enrollments));
     },
     loadEnrollments: (state, action: PayloadAction<Enrollment[]>) => {
       state.enrollments = action.payload;

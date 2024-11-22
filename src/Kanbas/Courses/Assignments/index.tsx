@@ -6,8 +6,10 @@ import { PiNotePencil } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrash } from "react-icons/fa6";
 import LessonControlButtons from "./AssignmentsControlButtons";
-import { deleteAssignment } from "./reducer";
+import { setAssignments, deleteAssignment, addAssignment } from "./reducer";
 import AssignmentEdit from "./AssignmentEdit";
+import * as assignmentsClient from "./client";
+import { useState, useEffect } from "react";
 
 export default function Assignments() {
   const { cid } = useParams();
@@ -17,11 +19,32 @@ export default function Assignments() {
   ).assignments.filter((assignment: any) => assignment.course === cid);
   const { currentUser } = useSelector((state: any) => state.accountReducer); 
   const dispatch = useDispatch();
+  const fetchAssignments = async () => {
+    const assignments = await assignmentsClient.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(assignments));
+  };
 
-  const handleRemoveAssignment = (assignmentId: any) => {
+
+
+/*   const createAssignmentForCourse = async () => {
+    if (!cid) return;
+    const newAssignment = { name: assignmentName, course: cid };
+    const assignment = await coursesClient.createModuleForCourse(cid, newAssignment);
+    dispatch(addAssignment(assignment));
+  };  */
+
+/*   const handleRemoveAssignment = (assignmentId: any) => {
+    dispatch(deleteAssignment(assignmentId));
+  }; */
+
+  const removeAssignment = async (assignmentId: string) => {
+    await assignmentsClient.deleteAssignment(assignmentId);
     dispatch(deleteAssignment(assignmentId));
   };
 
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
   return (
     <div id="wd-assignments">
       <AssignmentsControls onAddAssignmentClick={() => navigate(`/Kanbas/Courses/${cid}/Assignments/new`)} />
@@ -83,8 +106,8 @@ export default function Assignments() {
             </div>
             </>)}
             <AssignmentEdit 
-              assignmentId={assignment._id} 
-              removeAssignment={() => handleRemoveAssignment(assignment._id)}
+              removeAssignment={() =>
+                removeAssignment(assignment._id)}
             />
           </li>
         ))}
