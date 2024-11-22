@@ -6,10 +6,10 @@ import { PiNotePencil } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrash } from "react-icons/fa6";
 import LessonControlButtons from "./AssignmentsControlButtons";
-import { setAssignments, deleteAssignment, addAssignment } from "./reducer";
+import { setAssignments, deleteAssignment } from "./reducer";
 import AssignmentEdit from "./AssignmentEdit";
 import * as assignmentsClient from "./client";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 export default function Assignments() {
   const { cid } = useParams();

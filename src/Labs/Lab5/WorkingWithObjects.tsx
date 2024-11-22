@@ -17,7 +17,7 @@ export default function WorkingWithObjects() {
   const ASSIGNMENT_API_URL = `${REMOTE_SERVER}/lab5/assignment`
   const MODULE_API_URL = `${REMOTE_SERVER}/lab5/module`;
 
-  const updateAssignmentTitle = async () => {
+  /* const updateAssignmentTitle = async () => {
     await fetch(`${ASSIGNMENT_API_URL}/title/${assignment.title}`, {
       method: "PUT",
     });
@@ -53,7 +53,7 @@ export default function WorkingWithObjects() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ description: module.description }),
     });
-  };
+  }; */
 
   return (
     <div id="wd-working-with-objects">

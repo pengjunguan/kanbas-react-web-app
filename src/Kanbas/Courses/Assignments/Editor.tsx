@@ -30,7 +30,7 @@ export default function AssignmentEditor() {
   };
 
   const saveAssignment = async (assignment: any) => {
-    const status = await assignmentsClient.updateAssignment(assignment);
+    await assignmentsClient.updateAssignment(assignment);
     dispatch(updateAssignment(assignment));
   };
 
