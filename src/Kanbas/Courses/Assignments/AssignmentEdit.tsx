@@ -1,14 +1,14 @@
 export default function AssignmentEdit({
-  //assignmentId,
+  assignmentId,
   removeAssignment,
 }: {
-  //assignmentId: string; 
+  assignmentId: string; 
   removeAssignment: () => void;
 }) {
   return (
     <div
-      //id={`deleteModal-${assignmentId}`}
-      id="wd-add-module-dialog"
+      id={`deleteModal-${assignmentId}`}
+      //id="wd-add-module-dialog"
       className="modal fade"
       data-bs-backdrop="static"
       data-bs-keyboard="false"

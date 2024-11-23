@@ -107,6 +107,7 @@ export default function Assignments() {
             </div>
             </>)}
             <AssignmentEdit 
+            assignmentId={assignment._id}
               removeAssignment={() =>
                 removeAssignment(assignment._id)}
             />
