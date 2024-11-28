@@ -24,5 +24,3 @@ export const getEnrollmentsForUser = async (userId: any) => {
   const response = await axios.get(`${ENROLLMENTS_API}/user/${userId}`);
   return response.data;
 };
-
-

@@ -1,50 +1,30 @@
-import { NavLink } from "react-router-dom";
-
-import "./Navigation.css"; 
-
+import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 export default function AccountNavigation() {
-  /* const { currentUser } = useSelector((state: any) => state.accountReducer); */
-  /* const links = currentUser ? ["Profile"] : ["Signin", "Signup"]; */
-  /* const { pathname } = useLocation(); */
+ const { currentUser } = useSelector((state: any) => state.accountReducer);
+ const links = currentUser ? ["Profile"] : ["Signin", "Signup"];
+ const active = (path: string) => (pathname.includes(path) ? "active" : "");
+ const { pathname } = useLocation();
+ return (
+   <div id="wd-account-navigation" className="wd list-group border-0 rounded-0">
+     {links.map((link: string) => (
+       <Link to={`/Kanbas/Account/${link}`} className={`list-group-item text-danger border-0 ${
+        pathname.includes(link) ? "active" : ""
+      }`}
+      > 
+      {" "}
+      {link}{" "} 
+    </Link>
+  ))}
+  {currentUser && currentUser.role === "ADMIN" && (
+       <Link 
+          to={`/Kanbas/Account/Users`} 
+          className={`list-group-item border-0 border-0 ${active("Users")}`}
+       > 
+        {" "}
+        Users{" "} 
+       </Link> )}
+   </div>
+);}
 
-  return (
-    <div id="wd-account-navigation" style={{ display: "flex", flexDirection: "column" }}>
-      <NavLink
-        to={`/Kanbas/Account/Signin`}
-        id="wd-signin-link"
-        className="nav-link"
-        style={({ isActive }) => ({
-          color: isActive ? "black" : "red",
-          borderLeft: isActive ? "4px solid black" : "none",
-          paddingLeft: "10px"
-        })}
-      >
-        Signin
-      </NavLink>
-      <NavLink
-        to={`/Kanbas/Account/Signup`}
-        id="wd-signup-link"
-        className="nav-link"
-        style={({ isActive }) => ({
-          color: isActive ? "black" : "red",
-          borderLeft: isActive ? "4px solid black" : "none",
-          paddingLeft: "10px"
-        })}
-      >
-        Signup
-      </NavLink>
-      <NavLink
-        to={`/Kanbas/Account/Profile`}
-        id="wd-profile-link"
-        className="nav-link"
-        style={({ isActive }) => ({
-          color: isActive ? "black" : "red",
-          borderLeft: isActive ? "4px solid black" : "none",
-          paddingLeft: "10px"
-        })}
-      >
-        Profile
-      </NavLink>
-    </div>
-  );
-}
+
