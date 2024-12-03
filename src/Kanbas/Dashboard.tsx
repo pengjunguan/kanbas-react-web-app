@@ -114,7 +114,6 @@ export default function Dashboard({
       <div id="wd-dashboard-courses" className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
           {courses.map((course: any) => { 
-            //if (!course) return null;
             const isEnrolled = enrollments.some(
               (enrollment: any) =>
                 enrollment.user === currentUser._id && enrollment.course === course._id
