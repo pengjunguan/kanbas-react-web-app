@@ -79,7 +79,7 @@ export default function Kanbas() {
     } else {
       findCoursesForUser();
     }
- 
+ // eslint-disable-next-line @typescript-eslint/no-unused-vars
   }, [currentUser, enrolling]); 
 
   const [course, setCourse] = useState<any>({
@@ -91,6 +91,7 @@ export default function Kanbas() {
     setCourses([...courses, newCourse]);
   };
   const deleteCourse = async (courseId: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const status = await courseClient.deleteCourse(courseId);
     setCourses(courses.filter((course) => course._id !== courseId));
   };

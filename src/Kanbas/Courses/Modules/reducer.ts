@@ -12,6 +12,7 @@ const modulesSlice = createSlice({
     },
 
     addModule: (state, { payload: module }) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const newModule: any = {
         _id: new Date().getTime().toString(),
         lessons: [],
