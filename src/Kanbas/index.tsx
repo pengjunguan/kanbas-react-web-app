@@ -73,13 +73,11 @@ export default function Kanbas() {
    }
  }; */
 
+ // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     if (enrolling) {
-     // eslint-disable-next-line @typescript-eslint/no-unused-vars 
       fetchCourses();
     } else {
-     // eslint-disable-next-line @typescript-eslint/no-unused-vars 
       findCoursesForUser();
     }
   }, [currentUser, enrolling]); 
