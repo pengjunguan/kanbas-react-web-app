@@ -76,10 +76,10 @@ export default function Kanbas() {
   useEffect(() => {
     if (enrolling) {
       fetchCourses();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars  
     } else {
       findCoursesForUser();
     }
- // eslint-disable-next-line @typescript-eslint/no-unused-vars
   }, [currentUser, enrolling]); 
 
   const [course, setCourse] = useState<any>({
