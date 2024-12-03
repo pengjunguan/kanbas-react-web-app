@@ -73,13 +73,13 @@ export default function Kanbas() {
    }
  }; */
 
- // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (enrolling) {
       fetchCourses();
     } else {
       findCoursesForUser();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser, enrolling]); 
 
   const [course, setCourse] = useState<any>({
