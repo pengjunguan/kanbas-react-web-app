@@ -74,9 +74,9 @@ export default function Kanbas() {
  }; */
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     if (enrolling) {
       fetchCourses();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars  
     } else {
       findCoursesForUser();
     }
