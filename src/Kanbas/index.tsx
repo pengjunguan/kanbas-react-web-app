@@ -74,13 +74,15 @@ export default function Kanbas() {
  }; */
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
     if (enrolling) {
+      
       fetchCourses();
     } else {
+      
       findCoursesForUser();
     }
-  }, [currentUser, enrolling]); 
+  }, [currentUser, enrolling, fetchCourses]); 
 
   const [course, setCourse] = useState<any>({
     _id: "1234", name: "New Course", number: "New Number",
