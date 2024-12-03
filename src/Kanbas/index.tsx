@@ -74,15 +74,15 @@ export default function Kanbas() {
  }; */
 
   useEffect(() => {
-    
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     if (enrolling) {
-      
+     // eslint-disable-next-line @typescript-eslint/no-unused-vars 
       fetchCourses();
     } else {
-      
+     // eslint-disable-next-line @typescript-eslint/no-unused-vars 
       findCoursesForUser();
     }
-  }, [currentUser, enrolling, fetchCourses]); 
+  }, [currentUser, enrolling]); 
 
   const [course, setCourse] = useState<any>({
     _id: "1234", name: "New Course", number: "New Number",
