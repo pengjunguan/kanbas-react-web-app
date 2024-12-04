@@ -68,7 +68,7 @@ export default function Dashboard({
         </button>
       </h1>
       <hr />
-      {currentUser.role === "FACULTY" && (
+      {(currentUser.role === "FACULTY" || currentUser.role === "ADMIN") && (
         <>
           <h5>
             New Course
@@ -162,7 +162,7 @@ export default function Dashboard({
                         )}
                       </>
                     )}
-                    {currentUser.role === "FACULTY" && (
+                    {(currentUser.role === "FACULTY" || currentUser.role === "ADMIN") && (
                       <>
                         <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">
                           Go
