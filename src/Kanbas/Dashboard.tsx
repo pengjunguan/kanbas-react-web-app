@@ -16,21 +16,19 @@ export default function Dashboard({
 }: {
   courses: any[];
   course: any;
+  enrolling: boolean;
   setCourse: (course: any) => void;
   addNewCourse: () => void;
   deleteCourse: (courseId: string) => void;
   updateCourse: () => void;
-  enrolling: boolean;
   setEnrolling: (enrolling: boolean) => void;
-  updateEnrollment: (courseId: string, enrolled: boolean) => void;
+  updateEnrollment: (courseId: string, enrolled: boolean) => void
 }) {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const enrollments = useSelector((state: any) => state.enrollmentReducer.enrollments);
   const dispatch = useDispatch();
-
   const [showAllCourses, setShowAllCourses] = useState(false);
 
-  // Load enrollments from local storage on component mount
   useEffect(() => {
     const storedEnrollments = JSON.parse(localStorage.getItem("enrollments") || "[]");
     if (storedEnrollments.length) {
@@ -38,11 +36,11 @@ export default function Dashboard({
     }
   }, [dispatch]);
 
-  // Save enrollments to local storage whenever they change
+
   useEffect(() => {
     const saveEnrollmentsToLocalStorage = () => {
       const stateEnrollments = enrollments.filter(
-        (enrollment: { user: any }) => enrollment.user === currentUser._id
+        (enrollment: { user: any; }) => enrollment.user === currentUser._id
       );
       localStorage.setItem("enrollments", JSON.stringify(stateEnrollments));
     };
@@ -50,7 +48,7 @@ export default function Dashboard({
     saveEnrollmentsToLocalStorage();
   }, [enrollments, currentUser._id]);
 
-  // Handle enrollment toggle
+
   const handleEnrollmentToggle = (courseId: string, isEnrolled: boolean) => {
     if (isEnrolled) {
       dispatch(unenrollCourse({ userId: currentUser._id, courseId }));
@@ -59,19 +57,17 @@ export default function Dashboard({
     }
   };
 
+
   return (
     <div id="wd-dashboard">
-      <h1 id="wd-dashboard-title">
-        Dashboard
-        <button onClick={() => setEnrolling(!enrolling)} className="float-end btn btn-primary">
-          {enrolling ? "My Courses" : "All Courses"}
-        </button>
-      </h1>
-      <hr />
       {(currentUser.role === "FACULTY" || currentUser.role === "ADMIN") && (
         <>
-          <h5>
-            New Course
+          <h5 className="dashboard-title">
+            DashBoard
+            <button onClick={() => setEnrolling(!enrolling)} className="float-end btn btn-primary" >
+              {enrolling ? "My Courses" : "All Courses"}
+            </button>
+
             <button
               className="btn btn-primary float-end"
               id="wd-add-new-course-click"
@@ -109,42 +105,52 @@ export default function Dashboard({
           {showAllCourses ? "View Enrolled Courses" : "View All Courses"}
         </button>
       )}
-      <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
+
+      <h2 id="wd-dashboard-published">Published Courses</h2>
       <hr />
+
       <div id="wd-dashboard-courses" className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
-          {courses.map((course: any) => { 
+          {courses.map((course: any) => {
             const isEnrolled = enrollments.some(
               (enrollment: any) =>
                 enrollment.user === currentUser._id && enrollment.course === course._id
             );
 
             return (
-              <div key={course._id} className="wd-dashboard-course col" style={{ width: "300px" }}>
-                <div className="card">
-                  <img src="/images/reactjs.jpg" width="100%" alt={course.name} />
+              <div
+                key={course._id}
+                className="wd-dashboard-course col"
+                style={{ width: "300px" }}
+              >
+                <div className="card rounded-3 overflow-hidden">
+                  <img src="/images/reactjs.jpg" width="100%" height={160} alt="" />
                   <div className="card-body">
                     <h5 className="wd-dashboard-course-title card-title">
                       {enrolling && (
-                        <button
-                          onClick={(event) => {
-                            event.preventDefault();
-                            updateEnrollment(course._id, !course.enrolled);
-                          }}
-                          className={`btn ${course.enrolled ? "btn-danger" : "btn-success"} float-end`}
-                        >
+                        <button onClick={(event) => {
+                          event.preventDefault();
+                          updateEnrollment(course._id, !course.enrolled);
+                        }}
+                          className={`btn ${course.enrolled ? "btn-danger" : "btn-success"} float-end`} >
                           {course.enrolled ? "Unenroll" : "Enroll"}
                         </button>
                       )}
+
                       {course.name}
                     </h5>
-                    <p className="card-text overflow-y-hidden" style={{ maxHeight: 100 }}>
+                    <p
+                      className="wd-dashboard-course-title card-text overflow-y-hidden"
+                      style={{ maxHeight: 100 }}
+                    >
                       {course.description}
                     </p>
+
                     {currentUser.role === "STUDENT" && (
                       <>
                         <button
-                          className={`btn ${isEnrolled ? "btn-danger" : "btn-success"} me-2`}
+                          className={`btn ${isEnrolled ? "btn-danger" : "btn-success"
+                            } me-2`}
                           onClick={(event) => {
                             event.preventDefault();
                             handleEnrollmentToggle(course._id, isEnrolled);
@@ -162,9 +168,13 @@ export default function Dashboard({
                         )}
                       </>
                     )}
-                    {(currentUser.role === "FACULTY" || currentUser.role === "ADMIN") && (
+
+                {(currentUser.role === "FACULTY" || currentUser.role === "ADMIN") && (
                       <>
-                        <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">
+                        <Link
+                          to={`/Kanbas/Courses/${course._id}/Home`}
+                          className="btn btn-primary"
+                        >
                           Go
                         </Link>
                         <button
@@ -189,6 +199,7 @@ export default function Dashboard({
                         </button>
                       </>
                     )}
+
                   </div>
                 </div>
               </div>
